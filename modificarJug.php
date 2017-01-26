@@ -12,7 +12,7 @@ if (isset($_POST['modificar'])) {
     $nbaskets = $_POST["nbaskets"];
     $nassists = $_POST["nassists"];
     $nrebounds = $_POST["nrebounds"];
-    modificarAlumno($nbaskets, $nassists, $nrebounds);
+    modificarJugador($nbaskets, $nassists, $nrebounds);
 } else {
 // Recogemos del POST el nombre del jugador seleccionado
     $name = $_POST['player'];

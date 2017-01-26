@@ -116,3 +116,19 @@ function selectAllEquipos() {
 }
 
 //-----------------------------------------------------------------------------
+
+// Función que modifica los datos del jugador (Excepto el nombre, 
+// pq es primary key)
+function modificarJugador($name, $nbaskets, $nassists, $nrebounds) {
+    $con = conectar("basket");
+    $update = "update player set nbaskets=$nbaskets, nassists='$nassists',
+         nrebounds='$nrebounds'";
+    if (mysqli_query($con, $update)) {
+        echo "Jugador modificado";
+    } else {
+        echo mysqli_error($con);
+    }
+    desconectar($con);
+}
+
+//-----------------------------------------------------------------------------
