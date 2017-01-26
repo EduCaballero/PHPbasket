@@ -103,3 +103,16 @@ function selectAllJugadores() {
 }
 
 //-----------------------------------------------------------------------------
+
+// Función que conecta a la bbdd y devuelve 
+// el resultado de ejecutar select * from team
+function selectAllEquipos() {
+    // conectamos con la bbdd
+    $conexion = conectar("basket");
+    // Ejecutamos la consulta recogiendo el resultado
+    $resultado = mysqli_query($conexion, "select * from team");
+    desconectar($conexion);
+    return $resultado;
+}
+
+//-----------------------------------------------------------------------------
