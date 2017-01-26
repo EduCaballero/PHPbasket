@@ -8,9 +8,9 @@
         <?php
         if (isset($_POST["enviar"])) {
             // Recibimos los datos del formulario (POST)
-            $nombre = $_POST["name"];
-            $ciudad = $_POST["city"];
-            $creacion = $_POST["creation"];
+            $name = $_POST["name"];
+            $city = $_POST["city"];
+            $creation = $_POST["creation"];
 
             // Necesitamos incluir el fichero bbdd.php
             require_once('bbdd.php');

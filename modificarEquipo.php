@@ -13,9 +13,9 @@ echo "<form action='modificarEqJug.php' method='post'>";
 echo "Selecciona el jugador a modificar: ";
 echo "<select name='player'>";
 // Leemos los nombres de la bbdd
-$name = selectNombresJugadores();
+$names = selectNombresJugadores();
 // Vamos extrayendo los nombres y añadiendolos a la lista
-while ($fila=  mysqli_fetch_array($name)) {
+while ($fila=  mysqli_fetch_array($names)) {
     extract($fila);
     echo "<option value='$name'>$name</option>";
 }

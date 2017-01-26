@@ -53,7 +53,7 @@ function insertarJugador($name, $birth, $nbaskets, $nassists, $nrebounds, $posit
 // Tenemos la conexión con la BBDD :)
 // Preparamos el insert
     $insert = "insert into player 
-         values('$name', $birth, $nbaskets, $nassists, $nrebounds, '$position', '$team')";
+         values('$name', '$birth', $nbaskets, $nassists, $nrebounds, '$position', '$team')";
     // Insertamos en la bbdd
     if (mysqli_query($conexion, $insert)) {
         // Ha ido todo bien
@@ -152,10 +152,33 @@ function modificarEqJug($name, $team) {
 // devuelve todos sus datos
 function selectJugadorborrar($name) {
     $con = conectar("basket");
-    $query = "drop name from player where name='$name';";
+    $query = "delete from player where name='$name';";
+    if(mysqli_query($con, $query)) echo "Entrada borrada<br>";
+    else echo mysqli_error($con);
+    desconectar($con);
+}
+
+//-----------------------------------------------------------------------------
+
+/*select name from team;
+
+select * from player where team="stucom";*/ //esto es para la lista de jugadores de un equipo
+
+// Función que devuelve los nombres de todos los jugadores
+function selectNombresEquipos(){
+    $con = conectar("basket");
+    $query = "select name from team;";
     $resultado = mysqli_query($con, $query);
     desconectar($con);
     return $resultado;
 }
 
-//-----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
+function selectJugEquipo($team){
+    $con = conectar("basket");
+    $query = "select * from player where team='$team';";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
+}

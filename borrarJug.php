@@ -7,19 +7,25 @@
 
 // Necesitamos el fichero de la bbdd
 require_once 'bbdd.php';
+if(isset($_POST['borrar'])){
+   $name=$_POST['player'];
+    selectJugadorborrar($name); 
+}
 
+else{
 // Formulario para que escoja el jugador
-echo "<form action='borrar.php' method='post'>";
+echo "<form action='' method='post'>"; //haciendo esto es para que sea en la misma página
 echo "Selecciona el jugador a borrar: ";
 echo "<select name='player'>";
 // Leemos los nombres de la bbdd
-$name = selectNombresJugadores();
+$names = selectNombresJugadores();
 // Vamos extrayendo los nombres y añadiendolos a la lista
-while ($fila=  mysqli_fetch_array($name)) {
+while ($fila = mysqli_fetch_array($names)) {
     extract($fila);
     echo "<option value='$name'>$name</option>";
 }
 echo "</select>";
-echo "<input type='submit' value='Seleccionar'>";
+echo "<input type='submit' name='borrar' value='Seleccionar'>";
 echo "</form>";
-
+}
+?>
