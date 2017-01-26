@@ -10,7 +10,7 @@ if (isset($_POST['modificar'])) {
     // Si han pulsado modificar
     // Recojo los datos del formulario por POST
     $team = $_POST["team"];
-    modificarAlumno($team);
+    modificarEqJug($team);
 } else {
 // Recogemos del POST el nombre del jugador seleccionado
     $name = $_POST['player'];
