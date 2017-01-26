@@ -9,7 +9,7 @@
 require_once 'bbdd.php';
 
 // Formulario para que escoja el jugador
-echo "<form action='modificarJug.php' method='post'>";
+echo "<form action='borrar.php' method='post'>";
 echo "Selecciona el jugador a borrar: ";
 echo "<select name='player'>";
 // Leemos los nombres de la bbdd

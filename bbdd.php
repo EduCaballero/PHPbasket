@@ -133,7 +133,7 @@ function modificarJugador($name, $nbaskets, $nassists, $nrebounds) {
 
 //-----------------------------------------------------------------------------
 
-// Función que modifica los datos del jugador (Excepto el nombre, 
+// Función que modifica los datos del equipo (Excepto el nombre, 
 // pq es primary key)
 function modificarEqJug($name, $team) {
     $con = conectar("basket");
@@ -144,6 +144,18 @@ function modificarEqJug($name, $team) {
         echo mysqli_error($con);
     }
     desconectar($con);
+}
+
+//-----------------------------------------------------------------------------
+
+// Función que a partir del nombre de un jugador
+// devuelve todos sus datos
+function selectJugadorborrar($name) {
+    $con = conectar("basket");
+    $query = "drop name from player where name='$name';";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
 }
 
 //-----------------------------------------------------------------------------
