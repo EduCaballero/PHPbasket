@@ -68,3 +68,38 @@ function insertarJugador($name, $birth, $nbaskets, $nassists, $nrebounds, $posit
 
 //------------------------------------------------------------------------------
 
+// Función que devuelve los nombres de todos los jugadores
+function selectNombresJugadores() {
+    $con = conectar("basket");
+    $query = "select name from player;";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
+}
+
+//-----------------------------------------------------------------------------
+
+// Función que a partir del nombre de un jugador
+// devuelve todos sus datos
+function selectJugadorByNombre($name) {
+    $con = conectar("basket");
+    $query = "select * from player where name='$name';";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
+}
+
+//-----------------------------------------------------------------------------
+
+// Función que conecta a la bbdd y devuelve 
+// el resultado de ejecutar select * from player
+function selectAllJugadores() {
+    // conectamos con la bbdd
+    $conexion = conectar("basket");
+    // Ejecutamos la consulta recogiendo el resultado
+    $resultado = mysqli_query($conexion, "select * from player");
+    desconectar($conexion);
+    return $resultado;
+}
+
+//-----------------------------------------------------------------------------

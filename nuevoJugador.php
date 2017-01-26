@@ -8,13 +8,13 @@
         <?php
         if (isset($_POST["enviar"])) {
             // Recibimos los datos del formulario (POST)
-            $nombre = $_POST["name"];
-            $ciudad = $_POST["birth"];
-            $creacion = $_POST["nbaskets"];
-            $nombre = $_POST["nassists"];
-            $ciudad = $_POST["nrebounds"];
-            $creacion = $_POST["position"];
-            $nombre = $_POST["team"];            
+            $name = $_POST["name"];
+            $birth = $_POST["birth"];
+            $nbaskets = $_POST["nbaskets"];
+            $nassists = $_POST["nassists"];
+            $nrebounds = $_POST["nrebounds"];
+            $position = $_POST["position"];
+            $team = $_POST["team"];            
 
             // Necesitamos incluir el fichero bbdd.php
             require_once('bbdd.php');

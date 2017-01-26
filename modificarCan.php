@@ -8,16 +8,16 @@
 // Necesitamos el fichero de la bbdd
 require_once 'bbdd.php';
 
-// Formulario para que escoja el alumno
-echo "<form action='modificar.php' method='post'>";
-echo "Selecciona el alumno a modificar: ";
-echo "<select name='alumno'>";
+// Formulario para que escoja el jugador
+echo "<form action='modificarJug.php' method='post'>";
+echo "Selecciona el jugador a modificar: ";
+echo "<select name='player'>";
 // Leemos los nombres de la bbdd
-$nombres = selectNombresAlumnos();
+$name = selectNombresJugadores();
 // Vamos extrayendo los nombres y añadiendolos a la lista
-while ($fila=  mysqli_fetch_array($nombres)) {
+while ($fila=  mysqli_fetch_array($name)) {
     extract($fila);
-    echo "<option value='$nombre'>$nombre</option>";
+    echo "<option value='$name'>$name</option>";
 }
 echo "</select>";
 echo "<input type='submit' value='Seleccionar'>";
