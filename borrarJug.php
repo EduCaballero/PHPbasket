@@ -10,6 +10,9 @@ require_once 'bbdd.php';
 if(isset($_POST['borrar'])){
    $name=$_POST['player'];
     selectJugadorborrar($name); 
+    echo"<form action='index.php' method='POST'>
+            <input type='submit' value='VOLVER'>
+        </form>";
 }
 
 else{

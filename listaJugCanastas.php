@@ -8,9 +8,9 @@
 // Necesitamos el fichero de la bbdd
 require_once 'bbdd.php';
 if (isset($_POST['select'])) {
-    $team = $_POST['puntos'];
-    $resultado = selectJugEquipo($team);
-    echo "<h2> Listado de jugadores del equipo $team </h2><br><br>";
+    $nbaskets = $_POST['puntos'];
+    $resultado = selectJugNbaskets($nbaskets);
+    echo "<h2> Listado de jugadores con un número mayor o igual a $nbaskets de encestos </h2><br><br>";
     echo "<table border =1><tr><th>Nombre</th></tr>";
 // Mientras la consulta tenga filas
     while ($fila = mysqli_fetch_array($resultado)) {
@@ -23,13 +23,16 @@ if (isset($_POST['select'])) {
     }
 
     echo "</table><br>";
+    echo"<form action='index.php' method='POST'>
+            <input type='submit' value='VOLVER'>
+        </form>";
 }
 
 else{
 // Formulario para que escoja el jugador
 echo "<form action='' method='post'>"; //haciendo esto es para que sea en la misma página
-echo "Selecciona el equipo: ";
-echo "<input type='numer' name='puntos'>";
+echo "Escribe el número de encestos: ";
+echo "<input type='number' name='puntos'>";
 echo "</select>";
 echo "<input type='submit' name='select' value='Seleccionar'>";
 echo "</form>";

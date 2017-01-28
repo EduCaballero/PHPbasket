@@ -13,7 +13,7 @@ require_once 'bbdd.php';
 $resultado = selectAllJugadores();
 // Mostramos resultado de la consulta por pantalla
 echo "<h2> Listado de jugadores </h2><br><br>";
-echo "<table border =1><tr><th>Nombre</th>, <th>Fecha de nacimiento</th>, <th>Número de encestos</th>, <th>Número de asistencias</th>, <th>Número de rebotes</th>, <th>Posición</th>, <th>Equipo</th></tr><br>";
+echo "<table border =1><tr><th>Nombre</th> <th>Fecha de nacimiento</th> <th>Número de encestos</th> <th>Número de asistencias</th> <th>Número de rebotes</th> <th>Posición</th> <th>Equipo</th></tr>";
 // Mientras la consulta tenga filas
 while ($fila = mysqli_fetch_array($resultado)) {
     // Sacamos los datos de la fila
@@ -21,8 +21,14 @@ while ($fila = mysqli_fetch_array($resultado)) {
     // Los mostramos por pantalla
     // Los nombres de las variables serán SIEMPRE
     // iguales a los nombres de los campos en la BBDD
-    echo "<tr><td>$name</td>, <td>$birth</td>, <td>$nbaskets</td>, <td>$nassists</td>, <td>$nrebounds</td>, <td>$position</td>, <td>$team</td></tr></table><br>";
+    echo "<tr><td>$name</td> <td>$birth</td> <td>$nbaskets</td> <td>$nassists</td> <td>$nrebounds</td> <td>$position</td> <td>$team</td></tr>";
 }
+
+echo "</table><br>";
+
+echo"<form action='index.php' method='POST'>
+            <input type='submit' value='VOLVER'>
+        </form>";
 //
 //foreach ($resultado as $fila) {
 //    foreach ($fila as $valor) {

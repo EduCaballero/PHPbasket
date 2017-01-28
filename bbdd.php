@@ -121,8 +121,8 @@ function selectAllEquipos() {
 // pq es primary key)
 function modificarJugador($name, $nbaskets, $nassists, $nrebounds) {
     $con = conectar("basket");
-    $update = "update player set nbaskets=$nbaskets, nassists='$nassists',
-         nrebounds='$nrebounds'";
+    $update = "update player set nbaskets='$nbaskets', nassists='$nassists',
+         nrebounds='$nrebounds' where name='$name'";
     if (mysqli_query($con, $update)) {
         echo "Jugador modificado";
     } else {
@@ -137,7 +137,7 @@ function modificarJugador($name, $nbaskets, $nassists, $nrebounds) {
 // pq es primary key)
 function modificarEqJug($name, $team) {
     $con = conectar("basket");
-    $update = "update player set team=$team";
+    $update = "update player set team='$team' where name='$name'";
     if (mysqli_query($con, $update)) {
         echo "Equipo modificado";
     } else {
@@ -148,8 +148,8 @@ function modificarEqJug($name, $team) {
 
 //-----------------------------------------------------------------------------
 
-// Función que a partir del nombre de un jugador
-// devuelve todos sus datos
+// Función para borrar
+
 function selectJugadorborrar($name) {
     $con = conectar("basket");
     $query = "delete from player where name='$name';";
@@ -178,6 +178,36 @@ function selectNombresEquipos(){
 function selectJugEquipo($team){
     $con = conectar("basket");
     $query = "select * from player where team='$team';";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
+}
+
+//------------------------------------------------------------------------------
+
+function selectCity(){
+    $con = conectar("basket");
+    $query = "select city from team;";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
+}
+
+//------------------------------------------------------------------------------
+
+function selectEqCity($city){
+    $con = conectar("basket");
+    $query = "select name from team where city='$city';";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
+}
+
+//------------------------------------------------------------------------------
+
+function selectJugNbaskets($nbaskets) {
+    $con = conectar("basket");
+    $query = "select name from player where nbaskets>='$nbaskets';";
     $resultado = mysqli_query($con, $query);
     desconectar($con);
     return $resultado;

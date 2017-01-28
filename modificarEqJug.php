@@ -9,8 +9,12 @@ require_once 'bbdd.php';
 if (isset($_POST['modificar'])) {
     // Si han pulsado modificar
     // Recojo los datos del formulario por POST
+    $name= $_POST["name"];
     $team = $_POST["team"];
-    modificarEqJug($team);
+    modificarEqJug($name, $team);
+    echo"<form action='index.php' method='POST'>
+            <input type='submit' value='VOLVER'>
+        </form>";
 } else {
 // Recogemos del POST el nombre del jugador seleccionado
     $name = $_POST['player'];

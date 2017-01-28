@@ -23,11 +23,14 @@ if (isset($_POST['select'])) {
     }
 
     echo "</table><br>";
+    echo"<form action='index.php' method='POST'>
+            <input type='submit' value='VOLVER'>
+        </form>";
 }
 
 else{
 // Formulario para que escoja el jugador
-echo "<form action='' method='post'>"; //haciendo esto es para que sea en la misma página
+echo "<form action='' method='post'>"; //haciendo esto es para que pase los datos en la misma página
 echo "Selecciona el equipo: ";
 echo "<select name='team'>";
 // Leemos los nombres de la bbdd
